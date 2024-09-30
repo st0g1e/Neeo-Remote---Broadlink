@@ -1,0 +1,46 @@
+{ "name":"Draycott TV LG Living_Room",
+  "manufacturer":"LG",
+  "type":"AUDIO",
+  "version":1,
+  "persistedvariables":{
+    "ToInitiate":false
+  },
+  "discover":{
+    "welcomeheadertext":"Broadlink Driver for LG TV",
+    "welcomedescription":"Broadlink Driver LG TV",
+    "command":{"type":"http-rest", "command":{"verb":"get", "call":"http://localhost:1880/meta/broadlink"}, "queryresult":"$.*"}
+  },
+  "template" : {
+    "name":"LG TV",
+    "dynamicname":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
+    "dynamicid":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
+    "variables":{
+      "BroadlinkIP":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").ip DYNAMIK_INST_END",
+      "BroadlinkMac":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
+      "BroadlinkTypeId":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").typeid DYNAMIK_INST_END"
+    },
+    "buttons":{
+      "POWER": {
+        "label":"",
+        "type":"mqtt",
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"POWER ON\" }}"
+      },
+      "SOURCE": {
+        "label":"Source",
+        "type":"mqtt",
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"SOURCE\" }}"
+      },
+      "VOLUME UP": {
+        "label":"Volume Up",
+        "type":"mqtt",
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"VOLUME UP\" }}"
+      },
+      "VOLUME DOWN": {
+        "label":"Volume Down",
+        "type":"mqtt",
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"VOLUME DOWN\" }}"
+      }
+    }
+  }
+}
+

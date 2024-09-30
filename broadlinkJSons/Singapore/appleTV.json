@@ -1,0 +1,37 @@
+{ "name":"AppleTV 4",
+  "manufacturer":"Apple",
+  "type":"AUDIO",
+  "version":1,
+  "persistedvariables":{
+    "ToInitiate":false
+  },
+  "discover":{
+    "welcomeheadertext":"Broadlink Driver for AppleTV 4",
+    "welcomedescription":"Broadlink Driver for AppleTV 4",
+    "command":{"type":"http-rest", "command":{"verb":"get", "call":"http://localhost:1880/meta/broadlink"}, "queryresult":"$.*"}
+  },
+  "template" : {
+    "name":"AppleTV 4",
+    "dynamicname":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
+    "dynamicid":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
+    "variables":{
+      "BroadlinkIP":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").ip DYNAMIK_INST_END",
+      "BroadlinkMac":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
+      "BroadlinkTypeId":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").typeid DYNAMIK_INST_END"
+    },
+    "buttons":{
+      "FUNCTION RED": {
+         "label":"Off",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER OFF\" }}"
+      },
+      "FUNCTION BLUE": {
+         "label":"On",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER ON\" }}"
+      }
+    }
+  }
+}
+
+

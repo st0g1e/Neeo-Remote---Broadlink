@@ -1,0 +1,376 @@
+[
+    {
+        "id": "c240b59f.282b48",
+        "type": "tab",
+        "label": "broadlink",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8398ed57.1c621",
+        "type": "Discover",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "db4b3070.19dbd",
+                "fda5155c.199b98"
+            ]
+        ]
+    },
+    {
+        "id": "db4b3070.19dbd",
+        "type": "http response",
+        "z": "c240b59f.282b48",
+        "name": "http-response",
+        "statusCode": "",
+        "headers": {},
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "19730d5a.69ef83",
+        "type": "http in",
+        "z": "c240b59f.282b48",
+        "name": "http-request",
+        "url": "/meta/broadlink",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "8398ed57.1c621"
+            ]
+        ]
+    },
+    {
+        "id": "fda5155c.199b98",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "110ed25409f06304",
+        "type": "mqtt in",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "topic": "meta/broadlink",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "8d10f29d.66b98",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "8ba6593742152b28"
+            ]
+        ]
+    },
+    {
+        "id": "dae7a69a24af54ae",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "bd26679c1195e62d",
+        "type": "function",
+        "z": "c240b59f.282b48",
+        "name": "function 1",
+        "func": "msg.action = \"send\";\n\nvar broadlinks = flow.get(\"broadlinks\");\n//node.warn(broadlinks);\n//node.warn(broadlinks[\"livingRoom\"].ip);\n\nvar broadlinkData = flow.get(\"broadlinkData\");\n//node.warn(broadlinkData);\n//node.warn(broadlinkData[\"TV\"][\"LG\"][\"LG1\"][\"POWER ON\"].Label);\n\nmsg.payload.host = broadlinks[\"livingRoom\"].ip;\nmsg.payload.mac = broadlinks[\"livingRoom\"].mac;\nmsg.payload.action = \"send\";\nmsg.payload.repeat = 0;\nmsg.payload.data = broadlinkData[msg.payload.type][msg.payload.brand][msg.payload.series][msg.payload.button].IR;\nmsg.payload.type = broadlinks[\"livingRoom\"].typeid;\n\n//node.warn(\"sent\");\n//node.warn(msg);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "a7ca45a69df0f99d"
+            ]
+        ]
+    },
+    {
+        "id": "a7ca45a69df0f99d",
+        "type": "RM",
+        "z": "c240b59f.282b48",
+        "name": "LivingRoom",
+        "device": "d2eda11728e38815",
+        "action": "_msg_",
+        "remote": "",
+        "button": "",
+        "fix": 1,
+        "RFSweep": "false",
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "dae7a69a24af54ae"
+            ]
+        ]
+    },
+    {
+        "id": "8ba6593742152b28",
+        "type": "json",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "bd26679c1195e62d"
+            ]
+        ]
+    },
+    {
+        "id": "c9df2863048714d4",
+        "type": "inject",
+        "z": "c240b59f.282b48",
+        "name": "Setup Broadlinks",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "d75ee3e3032dde45",
+                "47c5a32df33c7e50"
+            ]
+        ]
+    },
+    {
+        "id": "d75ee3e3032dde45",
+        "type": "http request",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:1880/meta/broadlink",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 330,
+        "y": 440,
+        "wires": [
+            [
+                "c591bd7167a2d158"
+            ]
+        ]
+    },
+    {
+        "id": "c591bd7167a2d158",
+        "type": "json",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "fc5966bc2dec1982"
+            ]
+        ]
+    },
+    {
+        "id": "fc5966bc2dec1982",
+        "type": "function",
+        "z": "c240b59f.282b48",
+        "name": "broadlinkSetup",
+        "func": "var broadlinkRemote = {};\nvar currentRemoteLocation = \"\";\n\nfor (var i = 0; i < msg.payload.length; i++) {\n    currentRemoteLocation = \"\";\n\n    switch (msg.payload[i].mac) {\n        case \"b4430defafcd\":\n            currentRemoteLocation = \"livingRoom\";\n            break;\n        default:\n            currentRemoteLocation = \"cannot find mac\";\n    }\n\n    broadlinkRemote[currentRemoteLocation] = {};\n    broadlinkRemote[currentRemoteLocation].mac = msg.payload[i].mac;\n    broadlinkRemote[currentRemoteLocation].ip = msg.payload[i].ip;\n    broadlinkRemote[currentRemoteLocation].typeid = msg.payload[i].typeid\n}\n\nflow.set(\"broadlinks\", broadlinkRemote);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 440,
+        "wires": [
+            [
+                "9555d0b0654f997e"
+            ]
+        ]
+    },
+    {
+        "id": "9555d0b0654f997e",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "47c5a32df33c7e50",
+        "type": "file in",
+        "z": "c240b59f.282b48",
+        "name": "broadlinkFile",
+        "filename": "//home/st0g1e/meta/myData/broadlinkData.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "1dbdb24a27f0d8be"
+            ]
+        ]
+    },
+    {
+        "id": "1dbdb24a27f0d8be",
+        "type": "json",
+        "z": "c240b59f.282b48",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 510,
+        "y": 500,
+        "wires": [
+            [
+                "18e31a63c9d8eccd"
+            ]
+        ]
+    },
+    {
+        "id": "4ed8823a1a12c1f3",
+        "type": "debug",
+        "z": "c240b59f.282b48",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "18e31a63c9d8eccd",
+        "type": "function",
+        "z": "c240b59f.282b48",
+        "name": "saveBroadlinkData",
+        "func": "flow.set(\"broadlinkData\", msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 500,
+        "wires": [
+            [
+                "4ed8823a1a12c1f3"
+            ]
+        ]
+    },
+    {
+        "id": "8d10f29d.66b98",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d2eda11728e38815",
+        "type": "rmdevice",
+        "folder": "",
+        "mac": "b4430defafcd",
+        "host": "192.168.1.236",
+        "devType": "2737"
+    }
+]
