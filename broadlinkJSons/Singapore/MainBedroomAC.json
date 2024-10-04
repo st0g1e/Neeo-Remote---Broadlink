@@ -1,4 +1,4 @@
-{ "name":"Draycott Mitsubishi Ceiling AC",
+{ "name":"Draycott Main Bedroom AC",
   "manufacturer":"Mitsubishi",
   "type":"AUDIO",
   "version":1,
@@ -6,12 +6,12 @@
     "ToInitiate":false
   },
   "discover":{
-    "welcomeheadertext":"Broadlink Driver for Mitsubishi Ceiling AC",
-    "welcomedescription":"Broadlink Driver for Mitsubishi Ceiling AC",
+    "welcomeheadertext":"Broadlink Driver for Mitsubishi Main Bedroom AC",
+    "welcomedescription":"Broadlink Driver for Mitsubishi Main Bedroom AC",
     "command":{"type":"http-rest", "command":{"verb":"get", "call":"http://localhost:1880/meta/broadlink"}, "queryresult":"$.*"}
   },
   "template" : {
-    "name":"Mitsubishi Ceiling AC",
+    "name":"Mitsubishi Main Bedroom AC",
     "dynamicname":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
     "dynamicid":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
     "variables":{
@@ -20,16 +20,16 @@
       "BroadlinkTypeId":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").typeid DYNAMIK_INST_END"
     },
     "buttons":{
-      "FUNCTION RED": {
+      "FUNCTION YELLOW": {
          "label":"Off",
          "type":"mqtt",
-         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER OFF\" }}"
-      },
-      "FUNCTION BLUE": {
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"mainBedroom\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"MainBedroom\", \"button\":\"POWER OFF\" }}"
+       },
+      "FUNCTION GREEN": {
          "label":"On",
          "type":"mqtt",
-         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER ON\" }}"
-      }
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"mainBedroom\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"MainBedroom\", \"button\":\"POWER ON\" }}"
+       }
     }
   }
 }

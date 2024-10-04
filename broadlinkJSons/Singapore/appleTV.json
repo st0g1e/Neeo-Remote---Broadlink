@@ -20,16 +20,56 @@
       "BroadlinkTypeId":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").typeid DYNAMIK_INST_END"
     },
     "buttons":{
-      "FUNCTION RED": {
-         "label":"Off",
+      "MENU": {
+         "label":"Menu",
          "type":"mqtt",
-         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER OFF\" }}"
-      },
-      "FUNCTION BLUE": {
-         "label":"On",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"MENU\" }}"
+       },
+      "EXIT": {
+         "label":"Exit",
          "type":"mqtt",
-         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER ON\" }}"
-      }
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"EXIT\" }}"
+       },
+      "CURSOR UP": {
+         "label":"Cursor up",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"CURSOR UP\" }}"
+       },
+      "CURSOR DOWN": {
+         "label":"Cursor down",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"CURSOR DOWN\" }}"
+       },
+      "CURSOR LEFT": {
+         "label":"Cursor left",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"CURSOR LEFT\" }}"
+       },
+      "CURSOR RIGHT": {
+         "label":"Cursor right",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"CURSOR RIGHT\" }}"
+       },
+      "CURSOR ENTER": {
+         "label":"Cursor enter",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"CURSOR ENTER\" }}"
+       },
+      "BACK": {
+         "label":"Back",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"BACK\" }}"
+       },
+      "SKIP SECONDS FORWARD": {
+         "label":"Skip seconds forward",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"SKIP SECONDS FORWARD\" }}"
+       },
+      "SKIP SECONDS BACKWARD": {
+         "label":"Skip seconds backward",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"VOD\", \"brand\":\"Apple\", \"series\":\"AppleTV 4\", \"button\":\"SKIP SECONDS BACKWARD\" }}"
+       }
     }
   }
 }

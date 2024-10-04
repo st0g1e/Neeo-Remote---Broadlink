@@ -1,17 +1,17 @@
-{ "name":"Draycott Mitsubishi Ceiling AC",
-  "manufacturer":"Mitsubishi",
+{ "name":"Studio AC",
+  "manufacturer":"Panasonic",
   "type":"AUDIO",
   "version":1,
   "persistedvariables":{
     "ToInitiate":false
   },
   "discover":{
-    "welcomeheadertext":"Broadlink Driver for Mitsubishi Ceiling AC",
-    "welcomedescription":"Broadlink Driver for Mitsubishi Ceiling AC",
+    "welcomeheadertext":"Broadlink Driver for Panasonic AC - Jakarta Studio",
+    "welcomedescription":"Broadlink Driver for Panasonic AC - Jakarta Studio",
     "command":{"type":"http-rest", "command":{"verb":"get", "call":"http://localhost:1880/meta/broadlink"}, "queryresult":"$.*"}
   },
   "template" : {
-    "name":"Mitsubishi Ceiling AC",
+    "name":"Studio Panasonic AC",
     "dynamicname":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
     "dynamicid":"DYNAMIK_INST_START DYNAMIK \" \" + JSON.parse(\"$Result\").mac DYNAMIK_INST_END",
     "variables":{
@@ -20,18 +20,17 @@
       "BroadlinkTypeId":"DYNAMIK_INST_START DYNAMIK JSON.parse(\"$Result\").typeid DYNAMIK_INST_END"
     },
     "buttons":{
-      "FUNCTION RED": {
-         "label":"Off",
-         "type":"mqtt",
-         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER OFF\" }}"
-      },
       "FUNCTION BLUE": {
          "label":"On",
          "type":"mqtt",
-         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"ACCESSORY\", \"brand\":\"Mitsubishi\", \"series\":\"Ceiling\", \"button\":\"POWER ON\" }}"
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"ACCESSORY\", \"brand\":\"Panasonic\", \"series\":\"Pulomas\", \"button\":\"POWER ON\" }}"
+      },
+      "FUNCTION RED": {
+         "label":"Off",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"ACCESSORY\", \"brand\":\"Panasonic\", \"series\":\"Pulomas\", \"button\":\"POWER OFF\" }}"
       }
     }
   }
 }
-
 

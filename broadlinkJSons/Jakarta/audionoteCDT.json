@@ -23,47 +23,47 @@
       "PREVIOUS": {
         "label":"Previous",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"PREVIOUS\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"PREVIOUS\" }}"
       },
       "NEXT": {
         "label":"Next",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"NEXT\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"NEXT\" }}"
       },
       "RANDOM": {
         "label":"Random",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"RANDOM\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"RANDOM\" }}"
       },
       "REPEAT": {
         "label":"Repeat",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"REPEAT\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"REPEAT\" }}"
       },
       "PLAY": {
         "label":"Play",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"PLAY\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"PLAY\" }}"
       },
       "PAUSE": {
         "label":"Pause",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"PAUSE\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"PAUSE\" }}"
       },
       "STOP": {
         "label":"Stop",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"STOP\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"STOP\" }}"
       },
       "REVERSE": {
         "label":"Reverse",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"REVERSE\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"REVERSE\" }}"
       },
       "FORWARD": {
         "label":"Forward",
         "type":"mqtt",
-        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"FORWARD\" }}"
+        "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"studioBack\", \"type\":\"MUSICPLAYER\", \"brand\":\"Audionote\", \"series\":\"CDT 2\", \"button\":\"FORWARD\" }}"
       }
     }
   }

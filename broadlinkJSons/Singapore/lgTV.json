@@ -1,6 +1,6 @@
 { "name":"Draycott TV LG Living_Room",
   "manufacturer":"LG",
-  "type":"AUDIO",
+  "type":"Audio",
   "version":1,
   "persistedvariables":{
     "ToInitiate":false
@@ -21,7 +21,7 @@
     },
     "buttons":{
       "POWER": {
-        "label":"",
+        "label":"Power",
         "type":"mqtt",
         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"POWER ON\" }}"
       },
@@ -30,6 +30,11 @@
         "type":"mqtt",
         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"SOURCE\" }}"
       },
+      "HOME": {
+         "label":"Home",
+         "type":"mqtt",
+         "command":"{ \"topic\":\"meta/broadlink\", \"message\": { \"location\": \"livingRoom\", \"type\":\"TV\", \"brand\":\"LG\", \"series\":\"LG2\", \"button\":\"HOME\" }}"
+       },
       "VOLUME UP": {
         "label":"Volume Up",
         "type":"mqtt",
